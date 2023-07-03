@@ -1,0 +1,65 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    
+</head>
+<header>
+    <nav>
+        <div class="logo"> <h1 style="font-size: 50px; font-weight: bold;"> दुर्गभ्रमंती </h1> </div>
+        <div class="menu">
+            <a href="#" >Home</a>
+            <a href="#">Gallery</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+
+    <form>
+        <div class="vk">
+    
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Email</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+    
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"> Enter Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+    
+        <button type="submit" class="btn btn-primary" onclick="openwith()">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary">Cancel </button><br><br>
+        <a href="/signup.html" style="color: white;" onclick="this.style.color = 'green';">New user? create account...</a>
+    
+        </div>
+
+        <script>
+            $(document).ready(function() {
+          // Add an event listener to the signup form submission
+          $('#signupForm').submit(function(event) {
+            event.preventDefault(); // Prevent form submission
+        
+            // Get the input values
+            var username = $('#username').val();
+            var password = $('#password').val();
+        
+            // Perform validation checks
+            if (username.length < 6 || password.length < 6) {
+              alert('Username and password must be at least 6 characters long.');
+              return;
+            }
+        
+            // If all validation checks pass, redirect the user to the home page
+            window.location.href = '/home.html';
+          });
+        });
+        function openwith() {
+      window.open("home.html");
+    }
+        </script>
+    </form>
+</header>

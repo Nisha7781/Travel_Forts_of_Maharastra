@@ -1,0 +1,134 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="signup.css">
+<script src="signup.js"></script>
+<header>
+  
+    <nav>
+      <div class="logo"> <h1 style="font-size: 50px; font-weight: bold;"> दुर्गभ्रमंती </h1> </div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#" >Gallery</a>
+            <a href="#" >About</a>
+            <a href="#" >Contact</a>
+        </div>
+    </nav>
+    
+<form>
+    <div class="vk">
+    <div class="mb-3">
+       
+      <label for="exampleInputusername1" class="form-label">Enter Username</label>
+      <input type="text" class="form-control" id="exampleInputusername1" aria-describedby="emailHelp">
+
+    </div>
+
+    <div class="mb-3">
+       
+      <label for="exampleInputmobile1" class="form-label">Enter mobile number</label>
+      <input type="number" class="form-control" id="exampleInputmobile1" aria-describedby="emailHelp">
+
+    </div>
+
+    <div class="mb-3">
+       
+        <label for="exampleInputEmail1" class="form-label">Enter Email</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  
+      </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"> Create Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary" onclick="openwith()">cancel</button><br><br>
+    <a href="/login.html" style="color:white;" onclick="this.style.color = 'green';">already you have account... Login</a>
+
+    </div>
+
+
+    <script>
+
+    // validate the Username
+    function validateUsername(username) {
+        if (username.length < 6 || !/^[a-zA-Z]+$/.test(username)) {
+          return false;
+        }
+        return true;
+      }
+      
+      // validate the Password
+      function validatePassword(password) {
+        if (password.length < 6 || !/\d/.test(password)) {
+          return false;
+        }
+        return true;
+      }
+      
+      // validate the E-mail id
+      function validateEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          return false;
+        }
+        return true;
+      }
+      
+      //validate the Mobile Number
+      function validateMobileNumber(mobileNumber) {
+        if (mobileNumber.length !== 10 || isNaN(mobileNumber)) {
+          return false;
+        }
+        return true;
+      }
+      
+      // Retrieve the form element
+      const signupForm = document.querySelector('form');
+      
+      // Add event listener to the form's submit event
+      signupForm.addEventListener('submit', function(event) {
+        // Prevent the form from being submitted
+        event.preventDefault();
+      
+        // Get the values entered in the form fields
+        const username = document.getElementById('exampleInputusername1').value;
+        const password = document.getElementById('exampleInputPassword1').value;
+        const email = document.getElementById('exampleInputEmail1').value;
+        const mobileNumber = document.getElementById('exampleInputmobile1').value;
+      
+        // Perform the validation for each field
+        if (!validateUsername(username)) {
+          alert('Invalid Username');
+          return;
+        }
+      
+        if (!validatePassword(password)) {
+          alert('Invalid Password');
+          return;
+        }
+      
+        if (!validateEmail(email)) {
+          alert('Invalid Email');
+          return;
+        }
+      
+        if (!validateMobileNumber(mobileNumber)) {
+          alert('Invalid Mobile Number');
+          return;
+        }
+      
+        // If all validations pass, you can proceed with submitting the form or performing further actions
+        alert('Form submitted successfully!');
+        signupForm.reset();
+      });
+      
+      function openwith() {
+      window.open("index.html");
+    }
+
+    </script>  
+  </form>
+
+
+</header>
